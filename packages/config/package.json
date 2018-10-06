@@ -7,6 +7,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
+    "@inja/env": "^0.1.0",
     "@inja/exception": "^0.1.0"
   },
   "devDependencies": {
