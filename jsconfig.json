@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "target": "es2015",
+    "module": "commonjs",
+    "paths": {
+      "@inja/*": ["./packages/@inja/*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "typeAcquisition": {
+    "include": [
+      "jest"
+    ]
+  }
+}

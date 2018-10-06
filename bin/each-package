@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+for pkg in $dir/../packages/*; do
+	echo -e "\n\e[36m[${pkg##*/}]\e[39m: $@\n"
+	(cd "$pkg" && eval "$@")
+done

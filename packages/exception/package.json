@@ -1,0 +1,12 @@
+{
+  "name": "@inja/exception",
+  "version": "0.1.0",
+  "main": "Exception.js",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "jest": "^23.4.1"
+  }
+}

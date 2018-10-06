@@ -1,0 +1,16 @@
+{
+  "name": "@inja/context",
+  "version": "0.1.0",
+  "main": "Context.js",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "@inja/container": "^0.1.0",
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
