@@ -51,12 +51,6 @@ class Container {
       () => this.resolve(provider, lifetime)
     );
     // @ts-ignore
-    this._provide.defer = (provider) => {
-      // @ts-ignore
-      const lifetime = this._provide.lifetime;
-      return this._provide(() => this.resolve(provider, lifetime));
-    };
-    // @ts-ignore
     this._provide.resolve = this._provide(this.resolve.bind(this));
   }
 
@@ -79,9 +73,14 @@ class Container {
     if (!instance) {
       let deps = [];
       if (_provider.inject) {
+        // @ts-ignore
+        this._provide.defer = (provider) => {
+          return this._provide(() => this.resolve(provider, lifetime));
+        };
         deps = _provider.inject(this._provide, transients).map(
           dep => this.resolve(dep, transients, provider)
         );
+        this._provide = null;
       }
       if (typeof provider === "function") {
         // @ts-ignore
@@ -113,6 +112,7 @@ class Container {
         scoped: new Map(),
         global: iface
       };
+      this._overrides.set(iface, override);
     }
     if (dependent) {
       override.scoped.set(dependent, provider);
