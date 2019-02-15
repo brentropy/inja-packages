@@ -80,7 +80,8 @@ class Container {
         deps = _provider.inject(this._provide, transients).map(
           dep => this.resolve(dep, transients, provider)
         );
-        this._provide = null;
+        // @ts-ignore
+        this._provide.defer = null;
       }
       if (typeof provider === "function") {
         // @ts-ignore
